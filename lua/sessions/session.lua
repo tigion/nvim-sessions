@@ -18,7 +18,7 @@ end
 function M.filepath() return M.directory() .. '/' .. M.filename() end
 
 ---Checks if the session file for the current working directory exists.
-function M.exists() return vim.fn.filereadable(M.filepath()) end
+function M.exists() return vim.fn.filereadable(M.filepath()) == 1 and true or false end
 
 ---Saves the session for the current working directory.
 function M.save()
