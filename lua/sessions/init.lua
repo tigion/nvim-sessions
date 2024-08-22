@@ -7,7 +7,7 @@ local M = {}
 -- M.setup = require('sessions.config').setup
 function M.setup(opts)
   -- check neovim version
-  if vim.fn.has('nvim-0.11') == 0 then
+  if vim.fn.has('nvim-0.10') == 0 then
     local msg = 'nvim-sessions requires Neovim >= 0.10'
     vim.notify(msg, vim.log.levels.ERROR, { title = 'nvim-session' })
     return
