@@ -23,11 +23,7 @@ function M.setup(opts)
   --
   vim.api.nvim_create_user_command('Session', function(input)
     if input.args == '' then
-      if session.exists() then
-        vim.notify('A saved session exists.')
-      else
-        vim.notify('No saved session exists.')
-      end
+      vim.notify(session.exists() and 'A' or 'No' .. ' saved session exists.')
       vim.notify('Usage: :Session [save|load|delete]')
     elseif input.args == 'save' then
       session.save()
@@ -40,7 +36,12 @@ function M.setup(opts)
     end
   end, {
     nargs = '?',
-    complete = function() return { 'save', 'load', 'delete' } end,
+    complete = function(ArgLead)
+      local choices = { 'save', 'load', 'delete' }
+      table.sort(choices)
+      if ArgLead == '' then return choices end
+      return vim.tbl_filter(function(choice) return string.find(choice, ArgLead) == 1 end, choices)
+    end,
     desc = 'Session [save|load|delete]',
   })
 end
