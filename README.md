@@ -16,6 +16,7 @@ Other better plugins are:
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
 - [folke/persistence.nvim](https://github.com/folke/persistence.nvim)
 - [tpope/vim-obsession](https://github.com/tpope/vim-obsession)
+- [echasnovski/mini.sessions](https://github.com/echasnovski/mini.sessions)
 - and many more ...
 
 ## Features
