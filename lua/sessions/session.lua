@@ -97,4 +97,10 @@ function M.delete()
   end
 end
 
+---Shows infos about the session for the current working directory and the usage.
+function M.info()
+  vim.notify(M.exists() and 'A' or 'No' .. ' saved session exists.')
+  vim.notify('Usage: :Session [save|load|delete]')
+end
+
 return M

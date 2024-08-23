@@ -12,7 +12,7 @@ local error = vim.health.error -- Reports an error.
 
 ---Checks the data directory.
 local function check_data_directory()
-  local data_dir = vim.fn.stdpath('data')
+  local data_dir = string(vim.fn.stdpath('data')) -- use `string()` to prevent  Lua Diagnostics `string|string[]` warning
   local message = 'Data directory `' .. data_dir .. '`'
 
   -- check if exists

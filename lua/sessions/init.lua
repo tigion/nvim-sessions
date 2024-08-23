@@ -23,8 +23,7 @@ function M.setup(opts)
   --
   vim.api.nvim_create_user_command('Session', function(input)
     if input.args == '' then
-      vim.notify(session.exists() and 'A' or 'No' .. ' saved session exists.')
-      vim.notify('Usage: :Session [save|load|delete]')
+      session.info()
     elseif input.args == 'save' then
       session.save()
     elseif input.args == 'load' then
